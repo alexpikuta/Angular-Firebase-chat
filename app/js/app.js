@@ -1,0 +1,1 @@
+angular.module('chat', []); // підключення додатка як модуля Angular
