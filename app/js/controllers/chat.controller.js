@@ -1,6 +1,6 @@
 function chatCtrl(){
     var vm = this;
-    vm.test = 'Some text'; 
+    vm.test = '!'; 
 };
 
 angular.module('chat') //підключення головного модуля chat
