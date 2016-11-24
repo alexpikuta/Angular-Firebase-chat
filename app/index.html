@@ -9,7 +9,35 @@
 <body>
     
     <section class="chat-page" ng-controller="chatCtrl as chat">
-        <h1>{{chat.test}}</h1>
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header__author">
+                    Pikuta Oleksandr
+                </div>
+                <div class="chat-header__btns">
+                    <button class="btn btn-green">Login</button>
+                </div>
+            </div>
+
+        <div class="chat-body">
+            <ul class="messages">
+                <li class="message message--mine">
+                    <!-- <img src="" alt=""> -->
+                    <span class="message__author">Alex Pikuta</span>
+                    <div class="message__text">
+                        Some text!
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+       <div class="chat-footer">
+            <textarea rows="5"></textarea>
+            <button class="btn btn-green">Send</button>
+        </div>
+      </div>
+
+
     </section>
 
     <!-- build:js js/vendor.min.js -->
