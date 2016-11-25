@@ -8,4 +8,4 @@
   };
   firebase.initializeApp(config);
   
-angular.module('chat', []); // підключення додатка як модуля Angular
+angular.module('chat', ['firebase']); // підключення додатка як модуля Angular

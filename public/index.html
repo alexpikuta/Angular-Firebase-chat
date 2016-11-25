@@ -1,13 +1,50 @@
 <!DOCTYPE html>
-<html ng-app="chat">
-<head>
-	<title>chat</title>
+<html lang="en" ng-app="chat" class="ng-scope">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>chat</title>
     <link rel="stylesheet" href="css/main.min.css">
-</head>
+  </head>
 <body>
-    
+<div class="container">
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12">       
     <section class="chat-page" ng-controller="chatCtrl as chat">
-        <h1>{{chat.test}}</h1>
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header__author">
+                    {{chat.author.displayName}}
+                </div>
+                <div class="chat-header__btns">
+                    <button ng-if="!chat.author" class="btn btn-green" ng-click="chat.login()">Login</button>
+                    <button ng-if="chat.author" class="btn btn-red" ng-click="chat.logout()">Logout</button>
+                </div>
+            </div>
+
+        <div class="chat-body">
+            <ul class="messages">
+                <li class="message" ng-class="{ 'message--mine': m.authorId == chat.author.uid }" ng-repeat="m in chat.shownMessages">
+                    <img ng-src="{{m.authorPhoto}}" class="message__photo" alt=""> 
+                    <span class="message__author">{{m.authorName}}</span>
+                    <div class="message__text">
+                        {{m.text}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+       <div class="chat-footer">
+            <textarea enter-sender="chat.sendMessage()" rows="2" ng-model="chat.newMessage"></textarea>
+            <button class="btn btn-green" ng-click="chat.sendMessage()">Send</button>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+
     </section>
 
     <script src="js/vendor.min.js"></script>
